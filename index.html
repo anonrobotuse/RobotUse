@@ -195,7 +195,7 @@
 
   <section id="compare">
     <h2>Baseline comparison &mdash; same task, three interfaces</h2>
-    <p>All 40 RoboLab tasks are selectable below, ordered so cases where a baseline fails but RobotUse succeeds come first, and cases where RobotUse also fails come last. Click the videos to play or pause the comparison. Once started, each clip repeats at 4× speed.</p>
+    <p>39 selected RoboLab tasks are selectable below, ordered so cases where a baseline fails but RobotUse succeeds come first, and cases where RobotUse also fails come last. Click the videos to play or pause the comparison. Once started, each clip repeats at 4× speed.</p>
     <div class="task-picker-row">
       <label for="task-select">Task</label>
       <select id="task-select" disabled><option>Loading tasks…</option></select>
@@ -415,7 +415,7 @@
     row.appendChild(message);
   });
 
-  // Task picker for the Baseline Comparison filmstrip: all 40 RoboLab tasks,
+  // Task picker for the Baseline Comparison filmstrip: selected RoboLab tasks,
   // pre-sorted (assets/manifest.json) so cases where a baseline fails but
   // RobotUse succeeds come first, and cases where RobotUse also fails come last.
   var select = document.getElementById('task-select');
