@@ -204,7 +204,7 @@
       <span id="task-progress" aria-live="polite"></span>
       <p id="task-objective" aria-live="polite"></p>
     </div>
-    <p class="note">ORS = Open Robot Skills. ★ RobotUse succeeds while at least one baseline fails. Use ← / → to change tasks. On small screens, swipe horizontally to compare methods.</p>
+    <p class="note">ORS = Open Robot Skills. Use ← / → to change tasks. On small screens, swipe horizontally to compare methods.</p>
     <noscript><p>Enable JavaScript to select tasks and play the comparison videos.</p></noscript>
     <div class="replay-row" role="group" aria-label="Comparison playback">
       <button class="replay-btn" id="compare-replay" type="button" title="Restart all comparison videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
@@ -435,10 +435,7 @@
     data.order.forEach(function(taskName){
       var opt = document.createElement('option');
       opt.value = taskName;
-      var t = data.tasks[taskName];
-      var tag = t.x2.status === 'success' &&
-        (t.capx.status !== 'success' || t.ors.status !== 'success') ? ' ★' : '';
-      opt.textContent = taskName + tag;
+      opt.textContent = taskName;
       select.appendChild(opt);
     });
 
