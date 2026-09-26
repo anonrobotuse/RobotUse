@@ -1,0 +1,578 @@
+{
+  "order": [
+    "UnstackRubiksCubeTask",
+    "BananaThenRubiksCubeTask",
+    "BigPumpkinInBinTask",
+    "BlockStackingSpecifiedOrderTask",
+    "BowlStackingLeftOnRightTask",
+    "KeyboardOutOfBinTask",
+    "MustardInLeftBinTask",
+    "RubiksCubeInFrontOfBowlTask",
+    "YellowAndWhiteObjectsInBinTask",
+    "BananaInBowlTask",
+    "BananasInBinThreeTotalTask",
+    "ButterAboveRaisinTask",
+    "FruitsOnPlate3Task",
+    "GrabABagelTask",
+    "PickGlassesTask",
+    "PickOrangeObjectTask",
+    "RubiksCubeAndBananaTask",
+    "RubiksCubeOrBananaTask",
+    "RubiksCubeTask",
+    "SmallerObjectButterInBinTask",
+    "Stack3RubiksCubeTask",
+    "YogurtInBowlTask"
+  ],
+  "tasks": {
+    "UnstackRubiksCubeTask": {
+      "objective": "Unstack the rubiks cube tower",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "failure",
+          "file": "UnstackRubiksCubeTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "failure",
+          "file": "UnstackRubiksCubeTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "failure",
+          "file": "UnstackRubiksCubeTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "UnstackRubiksCubeTask_v3.mp4"
+        }
+      ]
+    },
+    "BananaThenRubiksCubeTask": {
+      "objective": "put the banana then the cube in the bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "failure",
+          "file": "BananaThenRubiksCubeTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "BananaThenRubiksCubeTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "BananaThenRubiksCubeTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "BananaThenRubiksCubeTask_v3.mp4"
+        }
+      ]
+    },
+    "BigPumpkinInBinTask": {
+      "objective": "Put the bigger pumpkin in the bin",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "failure",
+          "file": "BigPumpkinInBinTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "BigPumpkinInBinTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "BigPumpkinInBinTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "BigPumpkinInBinTask_v3.mp4"
+        }
+      ]
+    },
+    "BlockStackingSpecifiedOrderTask": {
+      "objective": "Stack the blocks in the order from bottom to top: red, blue, green, yellow",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "BlockStackingSpecifiedOrderTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "failure",
+          "file": "BlockStackingSpecifiedOrderTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "failure",
+          "file": "BlockStackingSpecifiedOrderTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "BlockStackingSpecifiedOrderTask_v3.mp4"
+        }
+      ]
+    },
+    "BowlStackingLeftOnRightTask": {
+      "objective": "Stack the left bowl on the right bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "failure",
+          "file": "BowlStackingLeftOnRightTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "BowlStackingLeftOnRightTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "BowlStackingLeftOnRightTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "BowlStackingLeftOnRightTask_v3.mp4"
+        }
+      ]
+    },
+    "KeyboardOutOfBinTask": {
+      "objective": "Take the keyboard out of the bin and put it on the table",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "unknown",
+          "file": "KeyboardOutOfBinTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "failure",
+          "file": "KeyboardOutOfBinTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "failure",
+          "file": "KeyboardOutOfBinTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "KeyboardOutOfBinTask_v3.mp4"
+        }
+      ]
+    },
+    "MustardInLeftBinTask": {
+      "objective": "Put the mustard in the left bin",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "MustardInLeftBinTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "failure",
+          "file": "MustardInLeftBinTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "MustardInLeftBinTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "MustardInLeftBinTask_v3.mp4"
+        }
+      ]
+    },
+    "RubiksCubeInFrontOfBowlTask": {
+      "objective": "Put the rubiks cube in front of the bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "failure",
+          "file": "RubiksCubeInFrontOfBowlTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "RubiksCubeInFrontOfBowlTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "RubiksCubeInFrontOfBowlTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "RubiksCubeInFrontOfBowlTask_v3.mp4"
+        }
+      ]
+    },
+    "YellowAndWhiteObjectsInBinTask": {
+      "objective": "Put all white objects and yellow objects in the grey bin",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "YellowAndWhiteObjectsInBinTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "failure",
+          "file": "YellowAndWhiteObjectsInBinTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "YellowAndWhiteObjectsInBinTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "YellowAndWhiteObjectsInBinTask_v3.mp4"
+        }
+      ]
+    },
+    "BananaInBowlTask": {
+      "objective": "Pick up the banana and place it in the bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "BananaInBowlTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "BananaInBowlTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "BananaInBowlTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "BananaInBowlTask_v3.mp4"
+        }
+      ]
+    },
+    "BananasInBinThreeTotalTask": {
+      "objective": "Make sure there are 3 (three) bananas in the grey bin.",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "BananasInBinThreeTotalTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "BananasInBinThreeTotalTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "BananasInBinThreeTotalTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "BananasInBinThreeTotalTask_v3.mp4"
+        }
+      ]
+    },
+    "ButterAboveRaisinTask": {
+      "objective": "Pick up the butter box and place it on top of the raisin box",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "ButterAboveRaisinTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "ButterAboveRaisinTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "ButterAboveRaisinTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "ButterAboveRaisinTask_v3.mp4"
+        }
+      ]
+    },
+    "FruitsOnPlate3Task": {
+      "objective": "Put three (3) fruits on the plate",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "FruitsOnPlate3Task_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "FruitsOnPlate3Task_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "FruitsOnPlate3Task_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "FruitsOnPlate3Task_v3.mp4"
+        }
+      ]
+    },
+    "GrabABagelTask": {
+      "objective": "Grab a bagel",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "GrabABagelTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "GrabABagelTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "GrabABagelTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "GrabABagelTask_v3.mp4"
+        }
+      ]
+    },
+    "PickGlassesTask": {
+      "objective": "Pick up the eye glasses",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "PickGlassesTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "PickGlassesTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "PickGlassesTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "PickGlassesTask_v3.mp4"
+        }
+      ]
+    },
+    "PickOrangeObjectTask": {
+      "objective": "Pick up the orange measuring cup",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "PickOrangeObjectTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "PickOrangeObjectTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "PickOrangeObjectTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "PickOrangeObjectTask_v3.mp4"
+        }
+      ]
+    },
+    "RubiksCubeAndBananaTask": {
+      "objective": "Put the cube and the banana in the bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "RubiksCubeAndBananaTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "RubiksCubeAndBananaTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "RubiksCubeAndBananaTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "RubiksCubeAndBananaTask_v3.mp4"
+        }
+      ]
+    },
+    "RubiksCubeOrBananaTask": {
+      "objective": "Put the cube or the banana in the bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "RubiksCubeOrBananaTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "RubiksCubeOrBananaTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "RubiksCubeOrBananaTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "RubiksCubeOrBananaTask_v3.mp4"
+        }
+      ]
+    },
+    "RubiksCubeTask": {
+      "objective": "Put the cube in the bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "RubiksCubeTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "RubiksCubeTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "RubiksCubeTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "RubiksCubeTask_v3.mp4"
+        }
+      ]
+    },
+    "SmallerObjectButterInBinTask": {
+      "objective": "Place the smaller object in the grey bin.",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "SmallerObjectButterInBinTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "SmallerObjectButterInBinTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "SmallerObjectButterInBinTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "SmallerObjectButterInBinTask_v3.mp4"
+        }
+      ]
+    },
+    "Stack3RubiksCubeTask": {
+      "objective": "Stack the rubiks cubes in a tower",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "Stack3RubiksCubeTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "Stack3RubiksCubeTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "Stack3RubiksCubeTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "Stack3RubiksCubeTask_v3.mp4"
+        }
+      ]
+    },
+    "YogurtInBowlTask": {
+      "objective": "Put the small red yogurt in the red bowl",
+      "rounds": [
+        {
+          "round": 0,
+          "status": "success",
+          "file": "YogurtInBowlTask_v0.mp4"
+        },
+        {
+          "round": 1,
+          "status": "success",
+          "file": "YogurtInBowlTask_v1.mp4"
+        },
+        {
+          "round": 2,
+          "status": "success",
+          "file": "YogurtInBowlTask_v2.mp4"
+        },
+        {
+          "round": 3,
+          "status": "success",
+          "file": "YogurtInBowlTask_v3.mp4"
+        }
+      ]
+    }
+  }
+}
