@@ -172,7 +172,7 @@
   <header>
     <h1>RobotUse: Allocating Computation, Context, and Decisions</h1>
     <div class="authors">Anonymous Authors</div>
-    <div class="venue">Submitted to ICLR 2027 &mdash; under double-blind review</div>
+    <div class="venue">Submitted to ICLR 2027 (double-blind review)</div>
     <div class="code-resource">
       <button class="pill disabled" type="button" disabled title="Code will be released soon."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1 .1.76 2.1 3.27 1.13.1-.73.39-1.23.71-1.51-2.5-.28-5.13-1.25-5.13-5.57 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.16a10.8 10.8 0 0 1 5.64 0c2.15-1.46 3.1-1.16 3.1-1.16.61 1.55.23 2.7.11 2.98.72.79 1.16 1.8 1.16 3.03 0 4.33-2.64 5.28-5.15 5.56.4.35.77 1.04.77 2.09v2.9c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg>Code</button>
       <p class="note">Code will be released soon.</p>
@@ -189,13 +189,13 @@
   <section id="abstract">
     <h2>Abstract</h2>
     <div class="abstract">
-      <p>Robot agents must decide which physical outcomes to pursue while delegating to the backend the computations required to plan paths and control actuators. Code-based policies require the model to reason over too much detailed execution logic, while coarse skill interfaces can hide choices needed for adaptation and recovery. We introduce RobotUse, a structure for allocating computation, context, and decisions across language-level planning, visually grounded outcome specification, and backend execution. Agents express intent through target selection, candidate poses, and bounded adjustments; existing perception, geometry, planning, and control modules realize these specifications. Local agent contexts retain the detailed observations and revisions needed for a subgoal, returning outcomes and unresolved constraints to the main agent. An outer loop reviews only the main agent's trajectory and accumulates conditional guidance in a versioned playbook, keeping the execution backend fixed. Evaluations on 40 RoboLab tasks yield 45.00% task success for RobotUse, compared with 38.33% for CaP-X and 20.00% for GaP (ORS) across three runs. A grasp-tool removal study shows a smaller success reduction for RobotUse, and successive harness revisions increase success from 19/40 to 22/40 on the evaluated task catalog. These findings support outcome specification as a practical handoff boundary: model reasoning retains task-dependent choices, existing robot capabilities handle their realization, and experience improves how those capabilities are used.</p>
+      <p>Code-based robot policies expose detailed execution logic, while coarse skills can limit adaptation and recovery. RobotUse lets agents specify targets, candidate poses, and bounded adjustments; existing perception, geometry, planning, and control modules handle execution. Local agents retain subgoal observations and revisions, returning outcomes and unresolved constraints to the main agent. An outer loop reviews the main trajectory and updates a versioned playbook while keeping the backend fixed. Across 40 RoboLab tasks and three runs, RobotUse achieves 45.00% success, compared with 38.33% for CaP-X and 20.00% for GaP (ORS). Removing grasp tools causes a smaller success reduction for RobotUse. Harness revisions raise success from 19/40 to 22/40 on the evaluated task catalog. These results support outcome specification as a boundary between model reasoning and backend execution.</p>
     </div>
   </section>
 
   <section id="compare">
-    <h2>Baseline comparison &mdash; same task, three interfaces</h2>
-    <p>Explore 19 selected successful RobotUse demonstrations below, with cases where a baseline fails shown first. Click the videos to play or pause the comparison. Once started, each clip repeats at 4× speed.</p>
+    <h2>Baseline comparison</h2>
+    <p>19 selected tasks where RobotUse succeeds.</p>
     <div class="task-picker-row">
       <label for="task-select">Task</label>
       <select id="task-select" disabled><option>Loading tasks…</option></select>
@@ -204,7 +204,7 @@
       <span id="task-progress" aria-live="polite"></span>
       <p id="task-objective" aria-live="polite"></p>
     </div>
-    <p class="note">ORS = Open Robot Skills. Use ← / → to change tasks. On small screens, swipe horizontally to compare methods.</p>
+    <p class="note">ORS = Open Robot Skills. ← / → changes tasks. Click videos to pause or play; swipe to compare on mobile.</p>
     <noscript><p>Enable JavaScript to select tasks and play the comparison videos.</p></noscript>
     <div class="replay-row" role="group" aria-label="Comparison playback">
       <button class="replay-btn" id="compare-replay" type="button" title="Restart all comparison videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
@@ -234,12 +234,11 @@
         <tr><td>GaP (ORS)</td><td>20.00%</td></tr>
       </tbody>
     </table>
-    <p class="note">Numbers reproduced from the paper draft; see the PDF for the full evaluation protocol.</p>
   </section>
 
   <section id="ablation">
-    <h2>Ablation &mdash; removing the grasp tool</h2>
-    <p>Selected seed-1 tasks where CaP-X succeeds with its full tool set but fails after grasp-pose tools are removed, excluding tasks where RobotUse fails in both conditions. Compare both methods on the same task: RobotUse above, CaP-X below; full tools on the left, grasp tools removed on the right.</p>
+    <h2>Removing the grasp tool</h2>
+    <p>Selected seed-1 tasks where removing grasp tools causes CaP-X to fail. RobotUse succeeds in at least one condition.</p>
     <div class="task-picker-row">
       <label for="ablation-select">Task</label>
       <select id="ablation-select" disabled><option>Loading tasks…</option></select>
@@ -248,7 +247,7 @@
       <span id="ablation-progress" aria-live="polite"></span>
       <p id="ablation-objective" aria-live="polite"></p>
     </div>
-    <p class="note">These are selected failure cases, not aggregate success rates. CaP-X clips use the tools-only removal condition, excluding earlier runs with extra arithmetic restrictions. Click the videos to play or pause all four; each clip repeats at 4× speed.</p>
+    <p class="note">CaP-X uses tools-only removal, without extra arithmetic restrictions.</p>
     <div class="replay-row" role="group" aria-label="Ablation playback">
       <button class="replay-btn" id="ablation-replay" type="button" title="Restart all four ablation videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
     </div>
@@ -260,7 +259,7 @@
     </div>
     <figure class="paper-figure">
       <img src="assets/figures/flexibility.png" alt="Grasp-tool removal success rates: RobotUse 50% to 37.5%; CaP-X 45% to 17.5%." loading="lazy">
-      <figcaption><strong>Robustness of RobotUse.</strong> Success with and without the grasp tool; 40 tasks per condition. Full evaluation results from the paper, alongside the selected examples above.</figcaption>
+      <figcaption>Success with and without grasp tools across all 40 tasks.</figcaption>
     </figure>
   </section>
 
@@ -268,13 +267,13 @@
     <h2>Context Harnessing</h2>
     <figure class="paper-figure wide">
       <img src="assets/figures/context-usage.png" alt="Token usage comparison between single-agent execution and RobotUse across ten tasks." loading="lazy">
-      <figcaption><strong>Context harnessing.</strong> Token usage for RobotUse and single-agent execution on ten tasks. Mean and peak input are averaged across episodes; total tokens include all input and output tokens per episode.</figcaption>
+      <figcaption>Token usage on ten tasks. Mean and peak input are averaged across episodes; total tokens include input and output per episode.</figcaption>
     </figure>
   </section>
 
   <section id="harness">
-    <h2>Harness revisions &mdash; rounds 0 to 3</h2>
-    <p>Compare five selected tasks across four harness revisions (seed 0). Each task succeeds in round 3 after a failure or unknown outcome in an earlier round. Each panel shows its recorded outcome.</p>
+    <h2>Harness revisions</h2>
+    <p>Five seed-0 tasks across rounds 0 to 3. All succeed in round 3 after an earlier failure or unknown outcome.</p>
     <div class="task-picker-row harness-picker">
       <label for="harness-select">Task</label>
       <select id="harness-select" disabled><option>Loading tasks…</option></select>
@@ -283,7 +282,6 @@
       <span id="harness-progress" aria-live="polite"></span>
       <p id="harness-objective" aria-live="polite"></p>
     </div>
-    <p class="note">★ An earlier round failed or had an unknown outcome; round 3 succeeds. Top row: 0 / 1. Bottom row: 2 / 3. Click the videos to play or pause all four. Once started, each clip repeats at 4× speed.</p>
     <div class="replay-row" role="group" aria-label="Harness playback">
       <button class="replay-btn" id="harness-replay" type="button" title="Restart all four harness videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
     </div>
@@ -295,7 +293,7 @@
     </div>
     <figure class="paper-figure">
       <img src="assets/figures/learning.png" alt="Success rates over harness revisions 0 to 3: 47.5%, 50%, 55%, and 55%." loading="lazy">
-      <figcaption><strong>Learning from experience.</strong> Success over all 40 tasks per revision. The five videos above are selected examples; this curve shows the full task catalog.</figcaption>
+      <figcaption>Success across all 40 tasks at each harness revision.</figcaption>
     </figure>
   </section>
 
@@ -351,7 +349,7 @@
       v.style.display = '';
       var placeholder = seg.querySelector('.seg-empty');
       if (placeholder) placeholder.remove();
-      seg.querySelector('.seg-speed').hidden = false;
+      seg.querySelector('.seg-speed').hidden = v.dataset.recordingType === 'recorded_observations';
     });
     v.addEventListener('error', function(){
       var seg = v.parentElement;
@@ -469,6 +467,7 @@
           if (existingPlaceholder) existingPlaceholder.remove();
           existingVideo = document.createElement('video');
           existingVideo.className = 'speed4x';
+          existingVideo.dataset.recordingType = info.recording_type || '';
           existingVideo.muted = true; existingVideo.playsInline = true;
           applySpeed(existingVideo);
           seg.insertBefore(existingVideo, seg.firstChild);
@@ -529,8 +528,7 @@
   }).then(function(data){
     harnessSelect.replaceChildren();
     data.order.forEach(function(name){
-      var improved = data.tasks[name].rounds.slice(0,3).some(function(r){ return r.status !== 'success'; });
-      harnessSelect.appendChild(new Option(name + (improved ? ' ★' : ''), name));
+      harnessSelect.appendChild(new Option(name, name));
     });
     function loadHarness(){
       var index = harnessSelect.selectedIndex;
