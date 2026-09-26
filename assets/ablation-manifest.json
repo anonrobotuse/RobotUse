@@ -1,0 +1,266 @@
+{
+  "order": [
+    "FruitsOnPlate3Task",
+    "RubiksCubeOrBananaTask",
+    "Stack3RubiksCubeTask",
+    "BananaThenRubiksCubeTask",
+    "BananasInCrateTask",
+    "BowlStackingLeftOnRightTask",
+    "MustardInLeftBinTask",
+    "ReorientRedMugTask",
+    "RubiksCubeInFrontOfBowlTask",
+    "YellowAndWhiteObjectsInBinTask"
+  ],
+  "tasks": {
+    "FruitsOnPlate3Task": {
+      "objective": "Put three (3) fruits on the plate",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "success",
+          "file": "videos/all/FruitsOnPlate3Task_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "success",
+          "file": "videos/ablation/FruitsOnPlate3Task_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/FruitsOnPlate3Task_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/FruitsOnPlate3Task_cap_removed.mp4"
+        }
+      ]
+    },
+    "RubiksCubeOrBananaTask": {
+      "objective": "Put the cube or the banana in the bowl",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "success",
+          "file": "videos/all/RubiksCubeOrBananaTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "success",
+          "file": "videos/ablation/RubiksCubeOrBananaTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/RubiksCubeOrBananaTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/RubiksCubeOrBananaTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "Stack3RubiksCubeTask": {
+      "objective": "Stack the rubiks cubes in a tower",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "success",
+          "file": "videos/all/Stack3RubiksCubeTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "success",
+          "file": "videos/ablation/Stack3RubiksCubeTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/Stack3RubiksCubeTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/Stack3RubiksCubeTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "BananaThenRubiksCubeTask": {
+      "objective": "put the banana then the cube in the bowl",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "failure",
+          "file": "videos/all/BananaThenRubiksCubeTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/BananaThenRubiksCubeTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/BananaThenRubiksCubeTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/BananaThenRubiksCubeTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "BananasInCrateTask": {
+      "objective": "Put 2 bananas in the crate",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "success",
+          "file": "videos/all/BananasInCrateTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/BananasInCrateTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/BananasInCrateTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/BananasInCrateTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "BowlStackingLeftOnRightTask": {
+      "objective": "Stack the left bowl on the right bowl",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "failure",
+          "file": "videos/all/BowlStackingLeftOnRightTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "success",
+          "file": "videos/ablation/BowlStackingLeftOnRightTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/BowlStackingLeftOnRightTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/BowlStackingLeftOnRightTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "MustardInLeftBinTask": {
+      "objective": "Put the mustard in the left bin",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "interrupted",
+          "file": "videos/all/MustardInLeftBinTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "success",
+          "file": "videos/ablation/MustardInLeftBinTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/MustardInLeftBinTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/MustardInLeftBinTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "ReorientRedMugTask": {
+      "objective": "Put the red mug upright so that the opening is facing upwards.",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "success",
+          "file": "videos/all/ReorientRedMugTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/ReorientRedMugTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/ReorientRedMugTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/ReorientRedMugTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "RubiksCubeInFrontOfBowlTask": {
+      "objective": "Put the rubiks cube in front of the bowl",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "failure",
+          "file": "videos/all/RubiksCubeInFrontOfBowlTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/RubiksCubeInFrontOfBowlTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/RubiksCubeInFrontOfBowlTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/RubiksCubeInFrontOfBowlTask_cap_removed.mp4"
+        }
+      ]
+    },
+    "YellowAndWhiteObjectsInBinTask": {
+      "objective": "Put all white objects and yellow objects in the grey bin",
+      "clips": [
+        {
+          "label": "RobotUse \u00b7 full",
+          "status": "failure",
+          "file": "videos/all/YellowAndWhiteObjectsInBinTask_x2.mp4"
+        },
+        {
+          "label": "RobotUse \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/YellowAndWhiteObjectsInBinTask_ours_removed.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 full",
+          "status": "success",
+          "file": "videos/ablation/YellowAndWhiteObjectsInBinTask_cap_full.mp4"
+        },
+        {
+          "label": "CaP-X \u00b7 no grasp",
+          "status": "failure",
+          "file": "videos/ablation/YellowAndWhiteObjectsInBinTask_cap_removed.mp4"
+        }
+      ]
+    }
+  }
+}
