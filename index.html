@@ -195,7 +195,7 @@
 
   <section id="compare">
     <h2>Baseline comparison &mdash; same task, three interfaces</h2>
-    <p>39 selected RoboLab tasks are selectable below, ordered so cases where a baseline fails but RobotUse succeeds come first, and cases where RobotUse also fails come last. Click the videos to play or pause the comparison. Once started, each clip repeats at 4× speed.</p>
+    <p>Explore 19 selected successful RobotUse demonstrations below, with cases where a baseline fails shown first. Click the videos to play or pause the comparison. Once started, each clip repeats at 4× speed.</p>
     <div class="task-picker-row">
       <label for="task-select">Task</label>
       <select id="task-select" disabled><option>Loading tasks…</option></select>
@@ -416,8 +416,7 @@
   });
 
   // Task picker for the Baseline Comparison filmstrip: selected RoboLab tasks,
-  // pre-sorted (assets/manifest.json) so cases where a baseline fails but
-  // RobotUse succeeds come first, and cases where RobotUse also fails come last.
+  // Successful RobotUse demonstrations, with baseline failures shown first.
   var select = document.getElementById('task-select');
   var strip = document.getElementById('compare-filmstrip');
   var objectiveTag = document.getElementById('task-objective');
@@ -455,6 +454,9 @@
         var existingVideo = seg.querySelector('video');
         var statusEl = seg.querySelector('.seg-status');
         statusEl.textContent = '(' + (info.status || 'unknown') + ')';
+        var recordedObservations = info.recording_type === 'recorded_observations';
+        seg.querySelector('.seg-speed').textContent = '4× speed';
+
         if (existingVideo) {
           existingVideo.pause();
           existingVideo.remove();
@@ -474,7 +476,7 @@
           existingVideo.hidden = false;
           existingVideo.style.display = '';
           existingVideo.setAttribute('aria-label', seg.querySelector('.seg-label').textContent + ': ' + (t.objective || taskName));
-          seg.querySelector('.seg-speed').hidden = false;
+          seg.querySelector('.seg-speed').hidden = recordedObservations;
           existingVideo.playbackRate = PLAYBACK_RATE;
           playVideo(existingVideo);
         } else {
