@@ -334,12 +334,12 @@
     });
   }
 
-  // Autoplay muted clips and repeat until the user pauses the group.
+  // The group controller starts clips together after they are ready.
   function applySpeed(v){
     v.playbackRate = PLAYBACK_RATE;
-    v.autoplay = true;
+    v.autoplay = false;
     v.loop = true;
-    v.preload = 'metadata';
+    v.preload = 'auto';
     v.addEventListener('loadedmetadata', function(){ v.playbackRate = PLAYBACK_RATE; });
     v.addEventListener('play', function(){ v.playbackRate = PLAYBACK_RATE; });
     v.addEventListener('loadeddata', function(){
@@ -373,18 +373,57 @@
   document.querySelectorAll('video.speed4x').forEach(applySpeed);
 
   // Replay restarts the group; clicking the videos toggles play/pause in place.
-  function replayStrip(strip){
-    var row = strip.previousElementSibling;
-    row.querySelector('.playback-message').textContent = '';
-    row.querySelector('.pause-btn').textContent = 'Pause all';
-    row.querySelector('.pause-btn').dataset.paused = 'false';
-    strip.querySelectorAll('video').forEach(function(v){
-      if (!v.getAttribute('src')) return;
-      if (v.error) v.load();
-      v.currentTime = 0;
-      v.playbackRate = PLAYBACK_RATE;
-      playVideo(v);
+  function cancelGroupStart(strip){
+    if (strip.cancelStart) strip.cancelStart();
+  }
+
+  function startStrip(strip, restart){
+    cancelGroupStart(strip);
+    var videos = Array.from(strip.querySelectorAll('video')).filter(function(v){
+      return v.getAttribute('src');
     });
+    var row = strip.previousElementSibling;
+    var message = row.querySelector('.playback-message');
+    var pause = row.querySelector('.pause-btn');
+    pause.textContent = 'Pause all';
+    pause.dataset.paused = 'false';
+    message.textContent = 'Loading videos…';
+    videos.forEach(function(v){
+      v.pause();
+      if (restart) {
+        if (v.error) v.load();
+        v.currentTime = 0;
+      }
+      v.playbackRate = PLAYBACK_RATE;
+    });
+    var events = ['canplay', 'seeked', 'error'];
+    function cleanup(){
+      videos.forEach(function(v){
+        events.forEach(function(event){ v.removeEventListener(event, check); });
+      });
+      strip.cancelStart = null;
+    }
+    function check(){
+      var playable = videos.filter(function(v){ return !v.error; });
+      if (playable.some(function(v){ return v.readyState < 3 || v.seeking; })) return;
+      cleanup();
+      message.textContent = '';
+      if (!playable.length) {
+        pause.textContent = 'Play all';
+        pause.dataset.paused = 'true';
+        return;
+      }
+      playable.forEach(playVideo);
+    }
+    strip.cancelStart = cleanup;
+    videos.forEach(function(v){
+      events.forEach(function(event){ v.addEventListener(event, check); });
+    });
+    check();
+  }
+
+  function replayStrip(strip){
+    startStrip(strip, true);
   }
   document.querySelectorAll('.filmstrip').forEach(function(strip){
     var row = strip.previousElementSibling;
@@ -396,13 +435,15 @@
     pause.textContent = 'Pause all';
     pause.dataset.paused = 'false';
     function togglePlayback(){
-      var resume = !Array.from(strip.querySelectorAll('video')).some(function(v){ return !v.paused; });
-      strip.querySelectorAll('video').forEach(function(v){
-        if (resume && !v.error && v.getAttribute('src')) playVideo(v);
-        else v.pause();
-      });
-      pause.textContent = resume ? 'Pause all' : 'Play all';
-      pause.dataset.paused = String(!resume);
+      if (pause.dataset.paused === 'true') {
+        startStrip(strip, false);
+      } else {
+        cancelGroupStart(strip);
+        strip.querySelectorAll('video').forEach(function(v){ v.pause(); });
+        row.querySelector('.playback-message').textContent = '';
+        pause.textContent = 'Play all';
+        pause.dataset.paused = 'true';
+      }
     }
     strip.addEventListener('click', togglePlayback);
     pause.addEventListener('click', togglePlayback);
@@ -437,6 +478,7 @@
     });
 
     function loadTask(taskName){
+      cancelGroupStart(strip);
       var t = data.tasks[taskName];
       var index = data.order.indexOf(taskName);
       prev.disabled = index === 0;
@@ -477,11 +519,11 @@
           existingVideo.setAttribute('aria-label', seg.querySelector('.seg-label').textContent + ': ' + (t.objective || taskName));
           seg.querySelector('.seg-speed').hidden = recordedObservations;
           existingVideo.playbackRate = PLAYBACK_RATE;
-          playVideo(existingVideo);
         } else {
           showPlaceholder(seg, 'No video captured for this task.');
         }
       });
+      startStrip(strip, true);
     }
 
     select.addEventListener('change', function(){ loadTask(select.value); });
@@ -531,6 +573,7 @@
       harnessSelect.appendChild(new Option(name, name));
     });
     function loadHarness(){
+      cancelGroupStart(harnessStrip);
       var index = harnessSelect.selectedIndex;
       var task = data.tasks[harnessSelect.value];
       harnessPrev.disabled = index === 0;
@@ -557,8 +600,8 @@
         seg.insertBefore(video, seg.firstChild);
         seg.querySelector('.seg-speed').hidden = false;
         video.src = 'assets/videos/harness/' + info.file;
-        playVideo(video);
       });
+      startStrip(harnessStrip, true);
     }
     changeHarnessTask = function(direction){
       var index = harnessSelect.selectedIndex + direction;
@@ -586,6 +629,7 @@
     ablationSelect.replaceChildren();
     data.order.forEach(function(name){ ablationSelect.appendChild(new Option(name, name)); });
     function loadAblation(){
+      cancelGroupStart(ablationStrip);
       var index = ablationSelect.selectedIndex;
       var task = data.tasks[ablationSelect.value];
       ablationPrev.disabled = index === 0;
@@ -611,8 +655,8 @@
         seg.insertBefore(video, seg.firstChild);
         seg.querySelector('.seg-speed').hidden = false;
         video.src = 'assets/' + info.file;
-        playVideo(video);
       });
+      startStrip(ablationStrip, true);
     }
     changeAblationTask = function(direction){
       var index = ablationSelect.selectedIndex + direction;
