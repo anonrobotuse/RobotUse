@@ -54,6 +54,9 @@
   figure{ margin:0 0 44px; text-align:center; }
   figure img{ max-width:100%; border-radius:10px; border:1px solid var(--border); display:block; margin:0 auto; }
   figcaption{ color:var(--muted); font-size:0.88rem; margin-top:12px; max-width:720px; margin-left:auto; margin-right:auto; }
+  .paper-figure{ max-width:660px; margin:32px auto 0; }
+  .paper-figure img{ width:100%; background:#fff; padding:16px; }
+  .paper-figure.wide{ max-width:920px; }
   section{ margin-bottom:52px; }
   h2{ font-size:1.3rem; border-bottom:1px solid var(--border); padding-bottom:10px; margin-bottom:20px; }
   p{ color:var(--fg); }
@@ -171,6 +174,7 @@
       <a class="pill" href="#abstract">Abstract</a>
       <a class="pill" href="#compare">Baseline Comparison</a>
       <a class="pill" href="#ablation">Ablation</a>
+      <a class="pill" href="#context">Context Harnessing</a>
       <a class="pill" href="#harness">Harness Revisions</a>
     </div>
   </header>
@@ -247,11 +251,23 @@
       <div class="seg"><div class="seg-label">CaP-X · full <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
       <div class="seg"><div class="seg-label">CaP-X · no grasp <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
     </div>
+    <figure class="paper-figure">
+      <img src="assets/figures/flexibility.png" alt="Grasp-tool removal success rates: RobotUse 50% to 37.5%; CaP-X 45% to 17.5%." loading="lazy">
+      <figcaption><strong>Robustness of RobotUse.</strong> Success with and without the grasp tool; 40 tasks per condition. Full evaluation results from the paper, alongside the selected examples above.</figcaption>
+    </figure>
+  </section>
+
+  <section id="context">
+    <h2>Context Harnessing</h2>
+    <figure class="paper-figure wide">
+      <img src="assets/figures/context-usage.png" alt="Token usage comparison between single-agent execution and RobotUse across ten tasks." loading="lazy">
+      <figcaption><strong>Context harnessing.</strong> Token usage for RobotUse and single-agent execution on ten tasks. Mean and peak input are averaged across episodes; total tokens include all input and output tokens per episode.</figcaption>
+    </figure>
   </section>
 
   <section id="harness">
     <h2>Harness revisions &mdash; rounds 0 to 3</h2>
-    <p>Compare the same task across four harness revisions (seed 0). This selection includes the 22 tasks that succeed in round 3; the 9 with an earlier failure or unknown outcome appear first. Each panel shows its recorded outcome.</p>
+    <p>Compare five selected tasks across four harness revisions (seed 0). Each task succeeds in round 3 after a failure or unknown outcome in an earlier round. Each panel shows its recorded outcome.</p>
     <div class="task-picker-row harness-picker">
       <label for="harness-select">Task</label>
       <select id="harness-select" disabled><option>Loading tasks…</option></select>
@@ -270,6 +286,10 @@
       <div class="seg"><div class="seg-label">Round 2 <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
       <div class="seg"><div class="seg-label">Round 3 <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
     </div>
+    <figure class="paper-figure">
+      <img src="assets/figures/learning.png" alt="Success rates over harness revisions 0 to 3: 47.5%, 50%, 55%, and 55%." loading="lazy">
+      <figcaption><strong>Learning from experience.</strong> Success over all 40 tasks per revision. The five videos above are selected examples; this curve shows the full task catalog.</figcaption>
+    </figure>
   </section>
 
   <footer>
