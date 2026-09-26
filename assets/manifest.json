@@ -93,7 +93,9 @@
    },
    "ors": {
     "status": "failure",
-    "file": null
+    "file": "KeyboardOutOfBinTask_ors_replay.mp4",
+    "recording_type": "simulation_replay",
+    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
    }
   },
   "PinkSpoonInPotTask": {
@@ -123,7 +125,9 @@
    },
    "ors": {
     "status": "failure",
-    "file": null
+    "file": "Stack3RubiksCubeTask_ors_replay.mp4",
+    "recording_type": "simulation_replay",
+    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
    }
   },
   "PickGlassesTask": {
@@ -138,7 +142,9 @@
    },
    "ors": {
     "status": "failure",
-    "file": null
+    "file": "PickGlassesTask_ors_replay.mp4",
+    "recording_type": "simulation_replay",
+    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
    }
   },
   "RubiksCubeAndBananaTask": {
@@ -183,7 +189,9 @@
    },
    "ors": {
     "status": "failure",
-    "file": null
+    "file": "FruitsOnPlate3Task_ors_replay.mp4",
+    "recording_type": "simulation_replay",
+    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
    }
   },
   "ButterAboveRaisinTask": {
@@ -243,7 +251,9 @@
    },
    "ors": {
     "status": "failure",
-    "file": null
+    "file": "UnstackRubiksCubeTask_ors_replay.mp4",
+    "recording_type": "simulation_replay",
+    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
    }
   },
   "BlockStackingSpecifiedOrderTask": {
