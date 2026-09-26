@@ -570,7 +570,8 @@
           existingVideo.muted = true; existingVideo.playsInline = true;
           applySpeed(existingVideo);
           seg.insertBefore(existingVideo, seg.firstChild);
-          existingVideo.src = 'assets/videos/all/' + info.file;
+          if (!recordedObservations) existingVideo.poster = 'assets/posters/' + info.file.replace(/\.mp4$/i, '.jpg');
+          existingVideo.src = 'assets/videos/all/' + info.file + '?v=faststart1';
           existingVideo.hidden = false;
           existingVideo.style.display = '';
           existingVideo.setAttribute('aria-label', seg.querySelector('.seg-label').textContent + ': ' + (t.objective || taskName));
