@@ -2,6 +2,22 @@
 
 Static project page for double-blind review. `index.html` at repo root, images under `assets/`. No build step, no external network calls.
 
+Project page: https://anonrobotuse.github.io/RobotUse/
+
+## Local preview and current state
+
+From this directory, run `python -m http.server 8322 --bind 127.0.0.1`, then open `http://localhost:8322`. Use HTTP rather than opening the HTML directly: the task picker fetches `assets/manifest.json` and requires JavaScript.
+
+- Baseline comparison: all 40 tasks in the existing manifest order, with previous/next navigation and a position indicator. RobotUse successes with baseline failures appear first.
+- 109 comparison videos are stored in `assets/videos/all/`. The 11 missing ORS captures show a placeholder; their recorded task outcomes remain visible.
+- Videos play at 4× without re-encoding. Replay, pause, and resume controls operate on each comparison strip. Shorter clips stop on their last frame.
+- Narrow screens allow horizontal swiping through comparison clips and harness figures.
+- Harness revisions show the 22 tasks with a successful round-3 outcome, with the 9 tasks having an earlier failure or unknown outcome first. Four seed-0 videos are arranged as rounds 0/1 above rounds 2/3 in a 2×2 grid, with recorded outcomes and 4× playback. The local `assets/harness-manifest.json` maps each task to its videos.
+- Left/right arrow keys switch tasks in the comparison section last clicked or focused. Form controls retain their native keyboard behavior.
+- GitHub Pages serves the repository root from the `main` branch of `anonrobotuse/RobotUse`.
+
+The original hosting notes below predate the interactive video version. A host must serve JavaScript, JSON, and MP4 files for the current page to work; verify those capabilities before publication.
+
 ## Option A (recommended): GitHub Pages on a fresh anonymous account
 
 Gives a clean `https://<anon-user>.github.io/<repo>/` URL, like a real project page.
