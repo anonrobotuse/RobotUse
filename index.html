@@ -259,7 +259,7 @@
 
   <section id="compare">
     <h2>Baseline comparison</h2>
-    <p>19 selected tasks where RobotUse succeeds.</p>
+    <p>16 seed-0 tasks where RobotUse succeeds and at least one baseline fails.</p>
     <div class="task-picker-row">
       <label for="task-select">Task</label>
       <select id="task-select" disabled><option>Loading tasks…</option></select>
@@ -556,7 +556,7 @@
   var next = document.getElementById('task-next');
   var progress = document.getElementById('task-progress');
 
-  fetch('assets/manifest.json').then(function(r){
+  fetch('assets/manifest.json?v=seed0').then(function(r){
     if (!r.ok) throw new Error('Task list unavailable');
     return r.json();
   }).then(function(data){

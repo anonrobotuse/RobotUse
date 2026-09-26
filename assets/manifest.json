@@ -1,320 +1,315 @@
 {
- "order": [
-  "GrabABagelTask",
-  "SmallerObjectButterInBinTask",
-  "YogurtInBowlTask",
-  "BananasInBinThreeTotalTask",
-  "KeyboardOutOfBinTask",
-  "PinkSpoonInPotTask",
-  "Stack3RubiksCubeTask",
-  "PickGlassesTask",
-  "RubiksCubeAndBananaTask",
-  "RubiksCubeOrBananaTask",
-  "FruitsOnPlate3Task",
-  "ButterAboveRaisinTask",
-  "MarkerInMugTask",
-  "ReorientRedMugTask",
-  "UnstackRubiksCubeTask",
-  "BlockStackingSpecifiedOrderTask",
-  "BananaInBowlTask",
-  "RubiksCubeTask",
-  "BananasInCrateTask"
- ],
- "tasks": {
-  "GrabABagelTask": {
-   "objective": "Grab a bagel",
-   "x2": {
-    "status": "success",
-    "file": "GrabABagelTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "GrabABagelTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "GrabABagelTask_ors.mp4"
-   }
-  },
-  "SmallerObjectButterInBinTask": {
-   "objective": "Place the smaller object in the grey bin.",
-   "x2": {
-    "status": "success",
-    "file": "SmallerObjectButterInBinTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "SmallerObjectButterInBinTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "SmallerObjectButterInBinTask_ors.mp4"
-   }
-  },
-  "YogurtInBowlTask": {
-   "objective": "Put the small red yogurt in the red bowl",
-   "x2": {
-    "status": "success",
-    "file": "YogurtInBowlTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "YogurtInBowlTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "YogurtInBowlTask_ors.mp4"
-   }
-  },
-  "BananasInBinThreeTotalTask": {
-   "objective": "Make sure there are 3 (three) bananas in the grey bin.",
-   "x2": {
-    "status": "success",
-    "file": "BananasInBinThreeTotalTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "BananasInBinThreeTotalTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "BananasInBinThreeTotalTask_ors.mp4"
-   }
-  },
-  "KeyboardOutOfBinTask": {
-   "objective": "Take the keyboard out of the bin and put it on the table",
-   "x2": {
-    "status": "success",
-    "file": "KeyboardOutOfBinTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "KeyboardOutOfBinTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "KeyboardOutOfBinTask_ors_replay.mp4",
-    "recording_type": "simulation_replay",
-    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
-   }
-  },
-  "PinkSpoonInPotTask": {
-   "objective": "Put the pink spaghetti spoon in the pot",
-   "x2": {
-    "status": "success",
-    "file": "PinkSpoonInPotTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "PinkSpoonInPotTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "PinkSpoonInPotTask_ors.mp4"
-   }
-  },
-  "Stack3RubiksCubeTask": {
-   "objective": "Stack the rubiks cubes in a tower",
-   "x2": {
-    "status": "success",
-    "file": "Stack3RubiksCubeTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "Stack3RubiksCubeTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "Stack3RubiksCubeTask_ors_replay.mp4",
-    "recording_type": "simulation_replay",
-    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
-   }
-  },
-  "PickGlassesTask": {
-   "objective": "Pick up the eye glasses",
-   "x2": {
-    "status": "success",
-    "file": "PickGlassesTask_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "PickGlassesTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "PickGlassesTask_ors_replay.mp4",
-    "recording_type": "simulation_replay",
-    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
-   }
-  },
-  "RubiksCubeAndBananaTask": {
-   "objective": "Put the cube and the banana in the bowl",
-   "x2": {
-    "status": "success",
-    "file": "RubiksCubeAndBananaTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "RubiksCubeAndBananaTask_capx.mp4"
-   },
-   "ors": {
-    "status": "success",
-    "file": "RubiksCubeAndBananaTask_ors.mp4"
-   }
-  },
-  "RubiksCubeOrBananaTask": {
-   "objective": "Put the cube or the banana in the bowl",
-   "x2": {
-    "status": "success",
-    "file": "RubiksCubeOrBananaTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "RubiksCubeOrBananaTask_capx.mp4"
-   },
-   "ors": {
-    "status": "success",
-    "file": "RubiksCubeOrBananaTask_ors.mp4"
-   }
-  },
-  "FruitsOnPlate3Task": {
-   "objective": "Put three (3) fruits on the plate",
-   "x2": {
-    "status": "success",
-    "file": "FruitsOnPlate3Task_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "FruitsOnPlate3Task_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "FruitsOnPlate3Task_ors_replay.mp4",
-    "recording_type": "simulation_replay",
-    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
-   }
-  },
-  "ButterAboveRaisinTask": {
-   "objective": "Pick up the butter box and place it on top of the raisin box",
-   "x2": {
-    "status": "success",
-    "file": "ButterAboveRaisinTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "ButterAboveRaisinTask_capx.mp4"
-   },
-   "ors": {
-    "status": "success",
-    "file": "ButterAboveRaisinTask_ors.mp4"
-   }
-  },
-  "MarkerInMugTask": {
-   "objective": "Put the whiteboard marker in the mug",
-   "x2": {
-    "status": "success",
-    "file": "MarkerInMugTask_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "MarkerInMugTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "MarkerInMugTask_ors.mp4"
-   }
-  },
-  "ReorientRedMugTask": {
-   "objective": "Put the red mug upright so that the opening is facing upwards.",
-   "x2": {
-    "status": "success",
-    "file": "ReorientRedMugTask_x2.mp4"
-   },
-   "capx": {
-    "status": "failure",
-    "file": "ReorientRedMugTask_capx.mp4"
-   },
-   "ors": {
-    "status": "success",
-    "file": "ReorientRedMugTask_ors.mp4"
-   }
-  },
-  "UnstackRubiksCubeTask": {
-   "objective": "Unstack the rubiks cube tower",
-   "x2": {
-    "status": "success",
-    "file": "UnstackRubiksCubeTask_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "UnstackRubiksCubeTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "UnstackRubiksCubeTask_ors_replay.mp4",
-    "recording_type": "simulation_replay",
-    "replay_note": "Recorded robot commands replayed in simulation; not original footage. Original trajectory differs; both original and replay failed."
-   }
-  },
-  "BlockStackingSpecifiedOrderTask": {
-   "objective": "Stack the blocks in the order from bottom to top: red, blue, green, yellow",
-   "x2": {
-    "status": "success",
-    "file": "BlockStackingSpecifiedOrderTask_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "BlockStackingSpecifiedOrderTask_capx.mp4"
-   },
-   "ors": {
-    "status": "failure",
-    "file": "BlockStackingSpecifiedOrderTask_ors.mp4"
-   }
-  },
-  "BananaInBowlTask": {
-   "objective": "Pick up the banana and place it in the bowl",
-   "x2": {
-    "status": "success",
-    "file": "BananaInBowlTask_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "BananaInBowlTask_capx.mp4"
-   },
-   "ors": {
-    "status": "success",
-    "file": "BananaInBowlTask_ors.mp4"
-   }
-  },
-  "RubiksCubeTask": {
-   "objective": "Put the cube in the bowl",
-   "x2": {
-    "status": "success",
-    "file": "RubiksCubeTask_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "RubiksCubeTask_capx.mp4"
-   },
-   "ors": {
-    "status": "success",
-    "file": "RubiksCubeTask_ors.mp4"
-   }
-  },
-  "BananasInCrateTask": {
-   "objective": "Put 2 bananas in the crate",
-   "x2": {
-    "status": "success",
-    "file": "BananasInCrateTask_x2.mp4"
-   },
-   "capx": {
-    "status": "success",
-    "file": "BananasInCrateTask_capx.mp4"
-   },
-   "ors": {
-    "status": "success",
-    "file": "BananasInCrateTask_ors.mp4"
-   }
+  "seed": 0,
+  "selection": "RobotUse success and at least one baseline failure",
+  "order": [
+    "GrabABagelTask",
+    "SmallerObjectButterInBinTask",
+    "YogurtInBowlTask",
+    "BananasInBinThreeTotalTask",
+    "PutBowlOnShelfTopTask",
+    "Stack3RubiksCubeTask",
+    "PickGlassesTask",
+    "PickOrangeObjectTask",
+    "RubiksCubeAndBananaTask",
+    "RubiksCubeOrBananaTask",
+    "YellowAndWhiteObjectsInBinTask",
+    "FruitsOnPlate3Task",
+    "ButterAboveRaisinTask",
+    "MustardInLeftBinTask",
+    "MarkerInMugTask",
+    "BlockStackingSpecifiedOrderTask"
+  ],
+  "tasks": {
+    "GrabABagelTask": {
+      "objective": "Grab a bagel",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "GrabABagelTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "GrabABagelTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "GrabABagelTask_ors_seed0.mp4"
+      }
+    },
+    "SmallerObjectButterInBinTask": {
+      "objective": "Place the smaller object in the grey bin.",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "SmallerObjectButterInBinTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "SmallerObjectButterInBinTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "SmallerObjectButterInBinTask_ors_seed0.mp4"
+      }
+    },
+    "YogurtInBowlTask": {
+      "objective": "Put the small red yogurt in the red bowl",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "YogurtInBowlTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "YogurtInBowlTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "YogurtInBowlTask_ors_seed0.mp4"
+      }
+    },
+    "BananasInBinThreeTotalTask": {
+      "objective": "Make sure there are 3 (three) bananas in the grey bin.",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "BananasInBinThreeTotalTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "BananasInBinThreeTotalTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "BananasInBinThreeTotalTask_ors_seed0.mp4"
+      }
+    },
+    "PutBowlOnShelfTopTask": {
+      "objective": "Put the serving bowl anywhere on the shelf in front of you",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "PutBowlOnShelfTopTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "PutBowlOnShelfTopTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "PutBowlOnShelfTopTask_ors_seed0.mp4"
+      }
+    },
+    "Stack3RubiksCubeTask": {
+      "objective": "Stack the rubiks cubes in a tower",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "Stack3RubiksCubeTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "Stack3RubiksCubeTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "Stack3RubiksCubeTask_ors_seed0.mp4",
+        "recording_type": "simulation_replay"
+      }
+    },
+    "PickGlassesTask": {
+      "objective": "Pick up the eye glasses",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "PickGlassesTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "success",
+        "file": "PickGlassesTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "PickGlassesTask_ors_seed0.mp4",
+        "recording_type": "simulation_replay"
+      }
+    },
+    "PickOrangeObjectTask": {
+      "objective": "Pick up the orange measuring cup",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "PickOrangeObjectTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "success",
+        "file": "PickOrangeObjectTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": null
+      }
+    },
+    "RubiksCubeAndBananaTask": {
+      "objective": "Put the cube and the banana in the bowl",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "RubiksCubeAndBananaTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "RubiksCubeAndBananaTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "success",
+        "file": "RubiksCubeAndBananaTask_ors_seed0.mp4"
+      }
+    },
+    "RubiksCubeOrBananaTask": {
+      "objective": "Put the cube or the banana in the bowl",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "RubiksCubeOrBananaTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "RubiksCubeOrBananaTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "success",
+        "file": "RubiksCubeOrBananaTask_ors_seed0.mp4"
+      }
+    },
+    "YellowAndWhiteObjectsInBinTask": {
+      "objective": "Put all white objects and yellow objects in the grey bin",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "YellowAndWhiteObjectsInBinTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "success",
+        "file": "YellowAndWhiteObjectsInBinTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "YellowAndWhiteObjectsInBinTask_ors_seed0.mp4"
+      }
+    },
+    "FruitsOnPlate3Task": {
+      "objective": "Put three (3) fruits on the plate",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "FruitsOnPlate3Task_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "success",
+        "file": "FruitsOnPlate3Task_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "FruitsOnPlate3Task_ors_seed0.mp4",
+        "recording_type": "simulation_replay"
+      }
+    },
+    "ButterAboveRaisinTask": {
+      "objective": "Pick up the butter box and place it on top of the raisin box",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "ButterAboveRaisinTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "failure",
+        "file": "ButterAboveRaisinTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "success",
+        "file": "ButterAboveRaisinTask_ors_seed0.mp4"
+      }
+    },
+    "MustardInLeftBinTask": {
+      "objective": "Put the mustard in the left bin",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "MustardInLeftBinTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "success",
+        "file": "MustardInLeftBinTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "MustardInLeftBinTask_ors_seed0.mp4"
+      }
+    },
+    "MarkerInMugTask": {
+      "objective": "Put the whiteboard marker in the mug",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "MarkerInMugTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "success",
+        "file": "MarkerInMugTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "MarkerInMugTask_ors_seed0.mp4"
+      }
+    },
+    "BlockStackingSpecifiedOrderTask": {
+      "objective": "Stack the blocks in the order from bottom to top: red, blue, green, yellow",
+      "x2": {
+        "seed": 0,
+        "status": "success",
+        "file": "BlockStackingSpecifiedOrderTask_x2_seed0.mp4"
+      },
+      "capx": {
+        "seed": 0,
+        "status": "success",
+        "file": "BlockStackingSpecifiedOrderTask_capx_seed0.mp4"
+      },
+      "ors": {
+        "seed": 0,
+        "status": "failure",
+        "file": "BlockStackingSpecifiedOrderTask_ors_seed0.mp4"
+      }
+    }
   }
- }
 }
