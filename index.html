@@ -337,7 +337,7 @@
 
   <section id="harness">
     <h2>Continual Harnessing</h2>
-    <p>Five seed-0 tasks across rounds 0 to 3. All succeed in round 3 after an earlier failure or unknown outcome.</p>
+    <p>Five seed-0 tasks across rounds 0 to 3. All succeed in round 3 after an earlier failure.</p>
     <div class="task-picker-row harness-picker">
       <label for="harness-select">Task</label>
       <select id="harness-select" disabled><option>Loading tasks…</option></select>
@@ -657,7 +657,7 @@
   var harnessStrip = document.getElementById('harness-filmstrip');
   var harnessPrev = document.getElementById('harness-prev');
   var harnessNext = document.getElementById('harness-next');
-  fetch('assets/harness-manifest.json').then(function(response){
+  fetch('assets/harness-manifest.json?v=round0-status').then(function(response){
     if (!response.ok) throw new Error('Harness task list unavailable');
     return response.json();
   }).then(function(data){
