@@ -8,8 +8,8 @@ Project page: https://anonrobotuse.github.io/RobotUse/
 
 From this directory, run `python -m http.server 8322 --bind 127.0.0.1`, then open `http://localhost:8322`. Use HTTP rather than opening the HTML directly: the task picker fetches `assets/manifest.json` and requires JavaScript.
 
-- Baseline comparison: all 40 tasks in the existing manifest order, with previous/next navigation and a position indicator. RobotUse successes with baseline failures appear first.
-- 109 comparison videos are stored in `assets/videos/all/`. The 11 missing ORS captures show a placeholder; their recorded task outcomes remain visible.
+- Baseline comparison: 19 selected tasks, with previous/next navigation and a position indicator.
+- Original comparison media remain in `assets/videos/all/`; five additional ORS simulation replay videos fill missing recordings for the current selection. See the replay provenance notes below.
 - Videos autoplay muted and repeat at 4×, without re-encoding. Clicking a comparison strip toggles play/pause for its videos; Replay all restarts them. Switching tasks starts the new clips automatically.
 - Narrow screens allow horizontal swiping through comparison clips and harness figures.
 - Harness revisions show five selected tasks in this order: specified-order block stacking, left-on-right bowl stacking, keyboard out of the bin, cube in front of the bowl, and pumpkin into the bin. Four seed-0 videos are arranged as rounds 0/1 above rounds 2/3 in a 2×2 grid, with recorded outcomes and 4× playback. The local `assets/harness-manifest.json` maps each task to its videos.
@@ -48,3 +48,7 @@ To use it: push to any public repo (identity doesn't matter as much since the se
 - `git log` on this repo shows author `Anonymous <anonymous@anonymous.com>` (set locally in this repo only) — confirm the remote account you push to also carries no identifying name/email/avatar.
 - Strip any EXIF/identifying metadata from images if they were exported with author info embedded.
 - The abstract's numbers (45.00% / 38.33% / 20.00%) are copied from the current paper draft, which is marked as a **prospective/unverified** abstract in `overleaf-project/sec/00_abstract.tex`. Re-check against final evaluation results before making this page public.
+
+## ORS simulation replay media
+
+Five selected ORS seed-0 failures use newly rendered logged-action simulation replays: PickGlassesTask, FruitsOnPlate3Task, KeyboardOutOfBinTask, Stack3RubiksCubeTask, and UnstackRubiksCubeTask. They replay saved robot commands without new LLM calls. All five replay verifiers reported failure, but trajectories differ from the original observations; these are not original recordings. The page marks them as replay and preserves original outcomes.
