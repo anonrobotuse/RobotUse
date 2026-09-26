@@ -94,6 +94,26 @@
   .compare-grid .col .tag{ text-align:center; color:var(--muted); font-size:0.85rem; margin-top:8px; }
 
   /* Filmstrip: click to toggle playback of the comparison group. */
+  .video-carousel{ position:relative; }
+  .carousel-arrow{
+    position:absolute; top:50%; transform:translateY(-50%);
+    display:flex; align-items:center; justify-content:center;
+    width:44px; height:64px; padding:0; border:0; border-radius:12px;
+    background:transparent; color:var(--fg); cursor:pointer;
+    transition:background .15s ease, opacity .15s ease;
+  }
+  .carousel-arrow svg{ width:28px; height:28px; }
+  .carousel-arrow.previous{ left:-52px; }
+  .carousel-arrow.next{ right:-52px; }
+  .carousel-arrow:hover:not(:disabled){ background:var(--border); }
+  .carousel-arrow:disabled{ opacity:.2; cursor:default; }
+  @media(max-width:1080px){
+    .video-carousel{ padding:0 34px; }
+    .carousel-arrow{ width:30px; height:52px; }
+    .carousel-arrow.previous{ left:0; }
+    .carousel-arrow.next{ right:0; }
+    .carousel-arrow svg{ width:24px; height:24px; }
+  }
   .filmstrip{
     display:flex; border-radius:10px; overflow:hidden; border:1px solid var(--border);
     cursor:pointer;
@@ -103,6 +123,9 @@
   .filmstrip video{ display:block; width:100%; height:100%; object-fit:contain; background:#000; }
   .filmstrip.harness-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2px; background:var(--border); }
   .harness-grid .seg + .seg{ border-left:0; }
+  .filmstrip.baseline-grid{ background:var(--bg); }
+  .baseline-grid .seg:nth-child(2){ grid-column:1; grid-row:2; }
+  .baseline-grid .seg:nth-child(3){ grid-column:2; grid-row:2; }
   .harness-picker select{ max-width:100%; }
   #harness-objective{ flex-basis:100%; margin:0; }
   #harness-progress{ color:var(--muted); font-size:0.85rem; }
@@ -225,12 +248,12 @@
       <span id="task-progress" aria-live="polite"></span>
       <p id="task-objective" aria-live="polite"></p>
     </div>
-    <p class="note">ORS = Open Robot Skills. ← / → changes tasks. Click videos to pause or play; swipe to compare on mobile.</p>
+    <p class="note">ORS = Open Robot Skills. ← / → changes tasks. Click videos to pause or play.</p>
     <noscript><p>Enable JavaScript to select tasks and play the comparison videos.</p></noscript>
     <div class="replay-row" role="group" aria-label="Comparison playback">
       <button class="replay-btn" id="compare-replay" type="button" title="Restart all comparison videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
     </div>
-    <div class="filmstrip" id="compare-filmstrip">
+    <div class="filmstrip harness-grid baseline-grid" id="compare-filmstrip">
       <div class="seg">
         <video class="speed4x" loop muted playsinline preload="metadata"></video>
         <div class="seg-label">RobotUse (ours) <span class="seg-status"></span></div>
@@ -348,7 +371,7 @@
       if (error.name === 'AbortError') return;
       var parentStrip = v.closest('.filmstrip');
       if (!parentStrip) return;
-      var row = parentStrip.previousElementSibling;
+      var row = parentStrip.closest('section').querySelector('.replay-row');
       if (row && error.name === 'NotAllowedError') {
         row.querySelector('.playback-message').textContent = 'Press Replay all to start playback.';
       }
@@ -403,7 +426,7 @@
     var videos = Array.from(strip.querySelectorAll('video')).filter(function(v){
       return v.getAttribute('src');
     });
-    var row = strip.previousElementSibling;
+    var row = strip.closest('section').querySelector('.replay-row');
     var message = row.querySelector('.playback-message');
     var pause = row.querySelector('.pause-btn');
     pause.textContent = 'Pause all';
@@ -447,7 +470,20 @@
     startStrip(strip, true);
   }
   document.querySelectorAll('.filmstrip').forEach(function(strip){
-    var row = strip.previousElementSibling;
+    var section = strip.closest('section');
+    var carousel = document.createElement('div');
+    carousel.className = 'video-carousel';
+    strip.before(carousel);
+    carousel.appendChild(strip);
+    ['prev', 'next'].forEach(function(direction){
+      var arrow = section.querySelector('[id$="-' + direction + '"]');
+      arrow.className = 'carousel-arrow ' + (direction === 'prev' ? 'previous' : 'next');
+      arrow.title = arrow.getAttribute('aria-label');
+      var points = direction === 'prev' ? '15 18 9 12 15 6' : '9 6 15 12 9 18';
+      arrow.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="' + points + '"/></svg>';
+      carousel.appendChild(arrow);
+    });
+    var row = strip.closest('section').querySelector('.replay-row');
     var btn = row.querySelector('.replay-btn');
     if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); replayStrip(strip); });
     var pause = document.createElement('button');
@@ -505,9 +541,9 @@
       prev.disabled = index === 0;
       next.disabled = index === data.order.length - 1;
       progress.textContent = (index + 1) + ' / ' + data.order.length;
-      strip.previousElementSibling.querySelector('.pause-btn').textContent = 'Pause all';
-      strip.previousElementSibling.querySelector('.pause-btn').dataset.paused = 'false';
-      strip.previousElementSibling.querySelector('.playback-message').textContent = '';
+      strip.closest('section').querySelector('.replay-row').querySelector('.pause-btn').textContent = 'Pause all';
+      strip.closest('section').querySelector('.replay-row').querySelector('.pause-btn').dataset.paused = 'false';
+      strip.closest('section').querySelector('.replay-row').querySelector('.playback-message').textContent = '';
       objectiveTag.textContent = t.objective || '';
       METHODS.forEach(function(m, i){
         var seg = segs[i];
@@ -601,7 +637,7 @@
       harnessNext.disabled = index === data.order.length - 1;
       document.getElementById('harness-progress').textContent = (index + 1) + ' / ' + data.order.length;
       document.getElementById('harness-objective').textContent = task.objective;
-      var row = harnessStrip.previousElementSibling;
+      var row = harnessStrip.closest('section').querySelector('.replay-row');
       row.querySelector('.pause-btn').textContent = 'Pause all';
       row.querySelector('.pause-btn').dataset.paused = 'false';
       row.querySelector('.playback-message').textContent = '';
@@ -657,7 +693,7 @@
       ablationNext.disabled = index === data.order.length - 1;
       document.getElementById('ablation-progress').textContent = (index + 1) + ' / ' + data.order.length;
       document.getElementById('ablation-objective').textContent = task.objective;
-      var row = ablationStrip.previousElementSibling;
+      var row = ablationStrip.closest('section').querySelector('.replay-row');
       row.querySelector('.pause-btn').textContent = 'Pause all';
       row.querySelector('.pause-btn').dataset.paused = 'false';
       row.querySelector('.playback-message').textContent = '';
