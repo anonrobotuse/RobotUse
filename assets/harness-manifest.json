@@ -62,8 +62,10 @@
       "rounds": [
         {
           "round": 0,
-          "status": "unknown",
-          "file": "KeyboardOutOfBinTask_v0.mp4"
+          "status": "failure",
+          "file": "KeyboardOutOfBinTask_v0.mp4",
+          "original_status": "unknown",
+          "status_note": "Displayed as failure at the author's request; original report status was unknown."
         },
         {
           "round": 1,
