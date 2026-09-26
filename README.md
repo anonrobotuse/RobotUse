@@ -2,17 +2,29 @@
 
 Static project page for double-blind review. `index.html` at repo root, images under `assets/`. No build step, no external network calls.
 
-## Publish anonymously via anonymous.4open.science
+## Option A (recommended): GitHub Pages on a fresh anonymous account
 
-1. Push this repo to a **public** GitHub repo whose owner/repo name does not reveal identity (e.g. an existing anonymous account, or a repo name unrelated to the authors/lab).
+Gives a clean `https://<anon-user>.github.io/<repo>/` URL, like a real project page.
+
+1. Create a brand-new GitHub account in a separate/incognito browser session: new email, a username unrelated to the authors/lab, no bio/avatar. Never star, follow, or commit anything else from this account.
+2. Create a new **public** repo under that account (repo name can match the paper; that's fine, reviewers need to find it).
+3. Push this folder:
    ```bash
-   git remote add origin <your-anonymous-repo-url>
+   git remote add origin https://github.com/<anon-user>/<repo>.git
    git branch -M main
    git push -u origin main
    ```
-2. Go to https://anonymous.4open.science/ and submit the repo URL.
-3. When generating the link, enable the **webpage** option so `index.html` is served (not just the code browser).
-4. Use the generated `anonymous.4open.science/...` link in the paper/supplementary material — never link the raw `github.com/...` URL, since that defeats the anonymization.
+4. Repo **Settings → Pages** → Source: `Deploy from a branch` → Branch `main` / `(root)` → Save. The page goes live at `https://<anon-user>.github.io/<repo>/` in a few minutes.
+5. `.nojekyll` is already included so GitHub Pages serves the files as-is (no Jekyll processing).
+
+## Option B: anonymous.4open.science (source-browser, not a real webpage host)
+
+This service anonymizes an *existing* GitHub repo's owner/org/repo name/file contents, but it is a code/file browser, not GitHub-Pages-style hosting:
+- Opening `index.html` does render it inline (not just syntax-highlighted source), but inside their site's viewer frame (`anonymous.4open.science/r/<id>/index.html`), with the file tree and Source/Raw/Download buttons still showing — not a clean standalone page.
+- JavaScript is off by default and sandboxed even when toggled on (external scripts errored with a DOMPurify sanitization failure in testing) — fine for this page since it's plain HTML/CSS/images with no JS.
+- The sidebar always shows a **"Source commit \<date\>"** watermark, and updates to the original repo are live-reflected — so edits after your submission deadline are visible to anyone re-checking the link.
+
+To use it: push to any public repo (identity doesn't matter as much since the service anonymizes owner/repo/filenames), then submit the repo URL at https://anonymous.4open.science/ and share the generated `anonymous.4open.science/r/...` link — never the raw `github.com/...` URL.
 
 ## Before pushing, double check
 
