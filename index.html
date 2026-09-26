@@ -72,7 +72,7 @@
   .compare-grid .col video{ width:100%; border-radius:10px; border:1px solid var(--border); background:#000; }
   .compare-grid .col .tag{ text-align:center; color:var(--muted); font-size:0.85rem; margin-top:8px; }
 
-  /* filmstrip: videos joined edge-to-edge with an in-frame label, click to replay */
+  /* Filmstrip: click to toggle playback of the comparison group. */
   .filmstrip{
     display:flex; border-radius:10px; overflow:hidden; border:1px solid var(--border);
     cursor:pointer;
@@ -85,12 +85,15 @@
   .harness-picker select{ max-width:100%; }
   #harness-objective{ flex-basis:100%; margin:0; }
   #harness-progress{ color:var(--muted); font-size:0.85rem; }
+  #ablation-objective{ flex-basis:100%; margin:0; }
+  #ablation-progress{ color:var(--muted); font-size:0.85rem; }
   @media(max-width:480px){
     .harness-grid .seg-label{ top:5px; left:5px; padding:3px 5px; font-size:0.66rem; }
     .harness-grid .seg-speed{ bottom:5px; right:5px; padding:2px 5px; font-size:0.6rem; }
   }
   .filmstrip .seg-label{
     position:absolute; top:10px; left:10px;
+    max-width:calc(100% - 20px);
     background:rgba(0,0,0,0.62); color:#fff;
     padding:4px 10px; border-radius:6px;
     font-size:0.8rem; font-weight:600; line-height:1.3;
@@ -181,7 +184,7 @@
 
   <section id="compare">
     <h2>Baseline comparison &mdash; same task, three interfaces</h2>
-    <p>All 40 RoboLab tasks are selectable below, ordered so cases where a baseline fails but RobotUse succeeds come first, and cases where RobotUse also fails come last. All three play side by side; whichever finishes first freezes on its last frame until the others catch up. Click the strip to replay.</p>
+    <p>All 40 RoboLab tasks are selectable below, ordered so cases where a baseline fails but RobotUse succeeds come first, and cases where RobotUse also fails come last. Click the videos to play or pause the comparison. Once started, each clip repeats at 4× speed.</p>
     <div class="task-picker-row">
       <label for="task-select">Task</label>
       <select id="task-select" disabled><option>Loading tasks…</option></select>
@@ -197,17 +200,17 @@
     </div>
     <div class="filmstrip" id="compare-filmstrip">
       <div class="seg">
-        <video class="speed4x" autoplay muted playsinline></video>
+        <video class="speed4x" loop muted playsinline preload="metadata"></video>
         <div class="seg-label">RobotUse (ours) <span class="seg-status"></span></div>
         <div class="seg-speed">4&times; speed</div>
       </div>
       <div class="seg">
-        <video class="speed4x" autoplay muted playsinline></video>
+        <video class="speed4x" loop muted playsinline preload="metadata"></video>
         <div class="seg-label">CaP-X <span class="seg-status"></span></div>
         <div class="seg-speed">4&times; speed</div>
       </div>
       <div class="seg">
-        <video class="speed4x" autoplay muted playsinline></video>
+        <video class="speed4x" loop muted playsinline preload="metadata"></video>
         <div class="seg-label">GaP (ORS) <span class="seg-status"></span></div>
         <div class="seg-speed">4&times; speed</div>
       </div>
@@ -225,21 +228,24 @@
 
   <section id="ablation">
     <h2>Ablation &mdash; removing the grasp tool</h2>
-    <p>Same task and scene, with RobotUse's grasp tool removed from the backend. Success degrades less than the code-based baselines under the same removal. Click the strip to replay.</p>
-    <div class="replay-row" role="group" aria-label="Ablation playback">
-      <button class="replay-btn" id="ablation-replay" type="button" title="Restart both ablation videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
+    <p>Selected seed-1 tasks where CaP-X succeeds with its full tool set but fails after grasp-pose tools are removed. Compare both methods on the same task: RobotUse above, CaP-X below; full tools on the left, grasp tools removed on the right.</p>
+    <div class="task-picker-row">
+      <label for="ablation-select">Task</label>
+      <select id="ablation-select" disabled><option>Loading tasks…</option></select>
+      <button class="replay-btn" id="ablation-prev" type="button" disabled aria-label="Previous ablation task">← Previous</button>
+      <button class="replay-btn" id="ablation-next" type="button" disabled aria-label="Next ablation task">Next →</button>
+      <span id="ablation-progress" aria-live="polite"></span>
+      <p id="ablation-objective" aria-live="polite"></p>
     </div>
-    <div class="filmstrip" id="ablation-filmstrip">
-      <div class="seg">
-        <video class="speed4x" src="assets/videos/robotuse_rubiks_front.mp4" autoplay muted playsinline></video>
-        <div class="seg-label">RobotUse (full)</div>
-        <div class="seg-speed">4&times; speed</div>
-      </div>
-      <div class="seg">
-        <video class="speed4x" src="assets/videos/robotuse_nograsp_rubiks_front.mp4" autoplay muted playsinline></video>
-        <div class="seg-label">RobotUse (grasp tool removed)</div>
-        <div class="seg-speed">4&times; speed</div>
-      </div>
+    <p class="note">These are selected failure cases, not aggregate success rates. CaP-X clips use the tools-only removal condition, excluding earlier runs with extra arithmetic restrictions. Click the videos to play or pause all four; each clip repeats at 4× speed.</p>
+    <div class="replay-row" role="group" aria-label="Ablation playback">
+      <button class="replay-btn" id="ablation-replay" type="button" title="Restart all four ablation videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
+    </div>
+    <div class="filmstrip harness-grid" id="ablation-filmstrip">
+      <div class="seg"><div class="seg-label">RobotUse · full <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
+      <div class="seg"><div class="seg-label">RobotUse · no grasp <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
+      <div class="seg"><div class="seg-label">CaP-X · full <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
+      <div class="seg"><div class="seg-label">CaP-X · no grasp <span class="seg-status"></span></div><div class="seg-speed">4× speed</div></div>
     </div>
   </section>
 
@@ -254,7 +260,7 @@
       <span id="harness-progress" aria-live="polite"></span>
       <p id="harness-objective" aria-live="polite"></p>
     </div>
-    <p class="note">★ An earlier round failed or had an unknown outcome; round 3 succeeds. Top row: 0 / 1. Bottom row: 2 / 3. All clips play at 4× and stop on their final frame.</p>
+    <p class="note">★ An earlier round failed or had an unknown outcome; round 3 succeeds. Top row: 0 / 1. Bottom row: 2 / 3. Click the videos to play or pause all four. Once started, each clip repeats at 4× speed.</p>
     <div class="replay-row" role="group" aria-label="Harness playback">
       <button class="replay-btn" id="harness-replay" type="button" title="Restart all four harness videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Replay all</button>
     </div>
@@ -278,13 +284,14 @@
   // the underlying file is untouched real-time footage.
   var PLAYBACK_RATE = 4;
   var changeHarnessTask = null;
+  var changeAblationTask = null;
   var activeTaskSection = 'compare';
   document.addEventListener('pointerdown', function(event){
-    var section = event.target.closest('#compare, #harness');
+    var section = event.target.closest('#compare, #harness, #ablation');
     if (section) activeTaskSection = section.id;
   });
   document.addEventListener('focusin', function(event){
-    var section = event.target.closest('#compare, #harness');
+    var section = event.target.closest('#compare, #harness, #ablation');
     if (section) activeTaskSection = section.id;
   });
 
@@ -302,10 +309,11 @@
     });
   }
 
-  // No `loop`: each clip pauses on its own last frame once it ends, so
-  // shorter rollouts visibly freeze while longer ones keep playing.
+  // Autoplay muted clips and repeat until the user pauses the group.
   function applySpeed(v){
     v.playbackRate = PLAYBACK_RATE;
+    v.autoplay = true;
+    v.loop = true;
     v.preload = 'metadata';
     v.addEventListener('loadedmetadata', function(){ v.playbackRate = PLAYBACK_RATE; });
     v.addEventListener('play', function(){ v.playbackRate = PLAYBACK_RATE; });
@@ -339,9 +347,7 @@
   }
   document.querySelectorAll('video.speed4x').forEach(applySpeed);
 
-  // Filmstrip replay: ended videos sit paused on their last frame (no `loop`),
-  // so a click/tap on the strip or its button seeks every clip in it back to 0
-  // and restarts them together. Wired up for every .filmstrip on the page.
+  // Replay restarts the group; clicking the videos toggles play/pause in place.
   function replayStrip(strip){
     var row = strip.previousElementSibling;
     row.querySelector('.playback-message').textContent = '';
@@ -356,7 +362,6 @@
     });
   }
   document.querySelectorAll('.filmstrip').forEach(function(strip){
-    strip.addEventListener('click', function(){ replayStrip(strip); });
     var row = strip.previousElementSibling;
     var btn = row.querySelector('.replay-btn');
     if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); replayStrip(strip); });
@@ -364,15 +369,18 @@
     pause.className = 'replay-btn pause-btn';
     pause.type = 'button';
     pause.textContent = 'Pause all';
-    pause.addEventListener('click', function(){
-      var resume = pause.textContent === 'Resume all';
+    pause.dataset.paused = 'false';
+    function togglePlayback(){
+      var resume = !Array.from(strip.querySelectorAll('video')).some(function(v){ return !v.paused; });
       strip.querySelectorAll('video').forEach(function(v){
-        if (resume && !v.ended && !v.error && v.getAttribute('src')) playVideo(v);
+        if (resume && !v.error && v.getAttribute('src')) playVideo(v);
         else v.pause();
       });
-      pause.textContent = resume ? 'Pause all' : 'Resume all';
+      pause.textContent = resume ? 'Pause all' : 'Play all';
       pause.dataset.paused = String(!resume);
-    });
+    }
+    strip.addEventListener('click', togglePlayback);
+    pause.addEventListener('click', togglePlayback);
     row.appendChild(pause);
     var message = document.createElement('span');
     message.className = 'note playback-message';
@@ -435,7 +443,7 @@
           if (existingPlaceholder) existingPlaceholder.remove();
           existingVideo = document.createElement('video');
           existingVideo.className = 'speed4x';
-          existingVideo.autoplay = true; existingVideo.muted = true; existingVideo.playsInline = true;
+          existingVideo.muted = true; existingVideo.playsInline = true;
           applySpeed(existingVideo);
           seg.insertBefore(existingVideo, seg.firstChild);
           existingVideo.src = 'assets/videos/all/' + info.file;
@@ -471,6 +479,7 @@
       if (!event.repeat) {
         var direction = event.key === 'ArrowLeft' ? -1 : 1;
         if (activeTaskSection === 'harness' && changeHarnessTask) changeHarnessTask(direction);
+        else if (activeTaskSection === 'ablation' && changeAblationTask) changeAblationTask(direction);
         else changeTask(direction);
       }
     });
@@ -518,7 +527,7 @@
         if (!info.file) { showPlaceholder(seg, 'No video captured for this round.'); return; }
         var video = document.createElement('video');
         video.className = 'speed4x';
-        video.autoplay = true; video.muted = true; video.playsInline = true;
+        video.muted = true; video.playsInline = true;
         video.setAttribute('aria-label', 'Round ' + i + ' (' + info.status + '): ' + task.objective);
         applySpeed(video);
         seg.insertBefore(video, seg.firstChild);
@@ -541,6 +550,59 @@
   }).catch(function(){
     harnessSelect.disabled = true; harnessPrev.disabled = true; harnessNext.disabled = true;
     document.getElementById('harness-objective').textContent = 'The harness videos could not be loaded. Reload the page to try again.';
+  });
+  var ablationSelect = document.getElementById('ablation-select');
+  var ablationStrip = document.getElementById('ablation-filmstrip');
+  var ablationPrev = document.getElementById('ablation-prev');
+  var ablationNext = document.getElementById('ablation-next');
+  fetch('assets/ablation-manifest.json').then(function(response){
+    if (!response.ok) throw new Error('Ablation task list unavailable');
+    return response.json();
+  }).then(function(data){
+    ablationSelect.replaceChildren();
+    data.order.forEach(function(name){ ablationSelect.appendChild(new Option(name, name)); });
+    function loadAblation(){
+      var index = ablationSelect.selectedIndex;
+      var task = data.tasks[ablationSelect.value];
+      ablationPrev.disabled = index === 0;
+      ablationNext.disabled = index === data.order.length - 1;
+      document.getElementById('ablation-progress').textContent = (index + 1) + ' / ' + data.order.length;
+      document.getElementById('ablation-objective').textContent = task.objective;
+      var row = ablationStrip.previousElementSibling;
+      row.querySelector('.pause-btn').textContent = 'Pause all';
+      row.querySelector('.pause-btn').dataset.paused = 'false';
+      row.querySelector('.playback-message').textContent = '';
+      ablationStrip.querySelectorAll('.seg').forEach(function(seg,i){
+        var old = seg.querySelector('video');
+        if (old) { old.pause(); old.remove(); old.removeAttribute('src'); old.load(); }
+        var placeholder = seg.querySelector('.seg-empty');
+        if (placeholder) placeholder.remove();
+        var info = task.clips[i];
+        seg.querySelector('.seg-status').textContent = '(' + info.status + ')';
+        if (!info.file) { showPlaceholder(seg, 'No video captured for this condition.'); return; }
+        var video = document.createElement('video');
+        video.className = 'speed4x'; video.muted = true; video.playsInline = true;
+        video.setAttribute('aria-label', info.label + ' (' + info.status + '): ' + task.objective);
+        applySpeed(video);
+        seg.insertBefore(video, seg.firstChild);
+        seg.querySelector('.seg-speed').hidden = false;
+        video.src = 'assets/' + info.file;
+        playVideo(video);
+      });
+    }
+    changeAblationTask = function(direction){
+      var index = ablationSelect.selectedIndex + direction;
+      if (index < 0 || index >= data.order.length) return;
+      ablationSelect.selectedIndex = index; loadAblation();
+    };
+    ablationPrev.addEventListener('click', function(){ changeAblationTask(-1); });
+    ablationNext.addEventListener('click', function(){ changeAblationTask(1); });
+    ablationSelect.addEventListener('change', loadAblation);
+    ablationSelect.disabled = false;
+    loadAblation();
+  }).catch(function(){
+    ablationSelect.disabled = true; ablationPrev.disabled = true; ablationNext.disabled = true;
+    document.getElementById('ablation-objective').textContent = 'The ablation videos could not be loaded. Reload the page to try again.';
   });
 })();
 </script>
