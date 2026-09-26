@@ -49,6 +49,7 @@
     border:none;
   }
   .pill.disabled{ opacity:0.45; cursor:default; }
+  .pill svg{ width:17px; height:17px; flex:none; }
   .strip{ display:flex; gap:6px; overflow-x:auto; margin:32px 0 44px; border-radius:10px; }
   .strip img{ height:110px; width:auto; object-fit:cover; border-radius:6px; flex:0 0 auto; }
   figure{ margin:0 0 44px; text-align:center; }
@@ -172,11 +173,13 @@
     <div class="venue">Submitted to ICLR 2027 &mdash; under double-blind review</div>
     <div class="pillrow">
       <a class="pill" href="#abstract">Abstract</a>
+      <button class="pill disabled" type="button" disabled title="Code will be released soon."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1 .1.76 2.1 3.27 1.13.1-.73.39-1.23.71-1.51-2.5-.28-5.13-1.25-5.13-5.57 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.16a10.8 10.8 0 0 1 5.64 0c2.15-1.46 3.1-1.16 3.1-1.16.61 1.55.23 2.7.11 2.98.72.79 1.16 1.8 1.16 3.03 0 4.33-2.64 5.28-5.15 5.56.4.35.77 1.04.77 2.09v2.9c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg>Code</button>
       <a class="pill" href="#compare">Baseline Comparison</a>
       <a class="pill" href="#ablation">Ablation</a>
       <a class="pill" href="#context">Context Harnessing</a>
       <a class="pill" href="#harness">Harness Revisions</a>
     </div>
+    <p class="note">Code will be released soon.</p>
   </header>
 
   <section id="abstract">
