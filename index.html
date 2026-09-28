@@ -200,7 +200,9 @@
   }
   #task-objective{ flex-basis:100%; margin:0; font-size:0.95rem; }
   #task-progress{ color:var(--muted); font-size:0.85rem; }
-  .seg-status{ font-weight:400; opacity:0.85; }
+  .seg-status{ font-weight:600; }
+  .seg-status[data-status="success"]{ color:#86efac; }
+  .seg-status[data-status="failure"], .seg-status[data-status="fail"]{ color:#fca5a5; }
   .seg-empty{
     display:flex; align-items:center; justify-content:center;
     height:100%; padding:42px 16px 30px; color:#ccc; font-size:0.8rem; line-height:1.5; text-align:center; background:#000;
@@ -585,6 +587,7 @@
         var existingVideo = seg.querySelector('video');
         var statusEl = seg.querySelector('.seg-status');
         statusEl.textContent = '(' + (info.status || 'unknown') + ')';
+        statusEl.dataset.status = info.status || 'unknown';
         statusEl.title = info.replay_note || '';
         var recordedObservations = info.recording_type === 'recorded_observations';
         seg.querySelector('.seg-speed').textContent = '4× speed';
@@ -684,6 +687,7 @@
         if (placeholder) placeholder.remove();
         var info = task.rounds[i];
         seg.querySelector('.seg-status').textContent = '(' + info.status + ')';
+        seg.querySelector('.seg-status').dataset.status = info.status;
         if (!info.file) { showPlaceholder(seg, 'No video captured for this round.'); return; }
         var video = document.createElement('video');
         video.className = 'speed4x';
@@ -740,6 +744,7 @@
         if (placeholder) placeholder.remove();
         var info = task.clips[i];
         seg.querySelector('.seg-status').textContent = '(' + info.status + ')';
+        seg.querySelector('.seg-status').dataset.status = info.status;
         if (!info.file) { showPlaceholder(seg, 'No video captured for this condition.'); return; }
         var video = document.createElement('video');
         video.className = 'speed4x'; video.muted = true; video.playsInline = true;
