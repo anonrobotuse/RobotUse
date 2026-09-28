@@ -8,8 +8,8 @@ Project page: https://anonrobotuse.github.io/RobotUse/
 
 From this directory, run `python -m http.server 8322 --bind 127.0.0.1`, then open `http://localhost:8322`. Use HTTP rather than opening the HTML directly: the task picker fetches `assets/manifest.json` and requires JavaScript.
 
-- Baseline comparison: 16 seed-0 tasks where RobotUse succeeds and at least one baseline fails, with previous/next navigation and a position indicator. Every clip is resolved from the matching seed-0 report; filenames include `_seed0`. PickOrangeObjectTask has no captured ORS video and shows an explicit placeholder.
-- Original comparison media remain in `assets/videos/all/`; three ORS simulation replay videos fill missing recordings for the current selection. See the replay provenance notes below.
+- Baseline comparison: 16 seed-0 tasks where RobotUse succeeds and at least one baseline fails, with previous/next navigation and a position indicator. Every clip is resolved from the matching seed-0 report; filenames include `_seed0`. PickOrangeObjectTask uses a seed-0 logged-action simulation replay; it is not original footage.
+- Original comparison media remain in `assets/videos/all/`; four ORS simulation replay videos fill missing recordings for the current selection. See the replay provenance notes below.
 - Videos autoplay muted and repeat at 4×, without re-encoding. Clicking a comparison strip toggles play/pause for its videos; Replay all restarts them. Switching tasks starts the new clips automatically.
 - Narrow screens allow horizontal swiping through comparison clips and harness figures.
 - Harness revisions show five selected tasks in this order: specified-order block stacking, left-on-right bowl stacking, keyboard out of the bin, cube in front of the bowl, and pumpkin into the bin. Four seed-0 videos are arranged as rounds 0/1 above rounds 2/3 in a 2×2 grid, with recorded outcomes and 4× playback. The local `assets/harness-manifest.json` maps each task to its videos.
@@ -51,4 +51,4 @@ To use it: push to any public repo (identity doesn't matter as much since the se
 
 ## ORS simulation replay media
 
-Three selected ORS seed-0 failures use logged-action simulation replays: PickGlassesTask, FruitsOnPlate3Task, and Stack3RubiksCubeTask. They replay saved robot commands without new LLM calls. All three replay verifiers reported failure, but trajectories differ from the original observations; these are not original recordings. The page marks them as replay and preserves original outcomes.
+Four selected ORS seed-0 failures use logged-action simulation replays: PickGlassesTask, FruitsOnPlate3Task, Stack3RubiksCubeTask, and PickOrangeObjectTask. They replay saved robot commands without new LLM calls. All four replay verifiers reported failure, but trajectories differ from the original observations; these are not original recordings. The manifest preserves replay provenance and original outcomes; replay labels are omitted from the page at the author's request.

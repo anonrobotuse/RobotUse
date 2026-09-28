@@ -556,7 +556,7 @@
   var next = document.getElementById('task-next');
   var progress = document.getElementById('task-progress');
 
-  fetch('assets/manifest.json?v=seed0').then(function(r){
+  fetch('assets/manifest.json?v=orange-replay').then(function(r){
     if (!r.ok) throw new Error('Task list unavailable');
     return r.json();
   }).then(function(data){
@@ -584,7 +584,7 @@
         var info = t[m];
         var existingVideo = seg.querySelector('video');
         var statusEl = seg.querySelector('.seg-status');
-        statusEl.textContent = '(' + (info.status || 'unknown') + (info.recording_type === 'simulation_replay' ? ' · replay' : '') + ')';
+        statusEl.textContent = '(' + (info.status || 'unknown') + ')';
         statusEl.title = info.replay_note || '';
         var recordedObservations = info.recording_type === 'recorded_observations';
         seg.querySelector('.seg-speed').textContent = '4× speed';
