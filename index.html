@@ -99,6 +99,21 @@
   p{ color:var(--fg); }
   .abstract{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px 28px; font-size:0.98rem; }
   table{ width:100%; border-collapse:collapse; font-size:0.92rem; background:var(--card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .success-chart{ margin:28px 0 0; padding:24px; border:1px solid var(--border); border-radius:12px; background:var(--card); text-align:left; }
+  .success-chart figcaption{ margin:0 0 22px; max-width:none; color:var(--fg); font-size:0.95rem; font-weight:600; }
+  .success-chart figcaption span{ display:block; margin-top:3px; color:var(--muted); font-size:0.8rem; font-weight:400; }
+  .success-chart-row{ display:grid; grid-template-columns:90px minmax(0,1fr) 62px; gap:14px; align-items:center; margin:14px 0; font-size:0.88rem; }
+  .success-chart-track{ height:28px; background:var(--bg); border-radius:4px; overflow:hidden; }
+  .success-chart-bar{ height:100%; background:#9299a6; border-radius:4px; }
+  .success-chart-row.ours{ font-weight:700; }
+  .success-chart-row.ours .success-chart-bar{ background:var(--accent); }
+  .success-chart-value{ text-align:right; font-variant-numeric:tabular-nums; }
+  .success-chart-axis{ display:flex; justify-content:space-between; margin:8px 76px 0 104px; color:var(--muted); font-size:0.7rem; }
+  @media(max-width:480px){
+    .success-chart{ padding:16px 12px; }
+    .success-chart-row{ grid-template-columns:76px minmax(0,1fr) 54px; gap:8px; font-size:0.78rem; }
+    .success-chart-axis{ margin-left:84px; margin-right:62px; font-size:0.62rem; }
+  }
   th,td{ padding:10px 14px; text-align:left; border-bottom:1px solid var(--border); }
   th{ color:var(--muted); font-weight:600; }
   tr:last-child td{ border-bottom:none; }
@@ -292,6 +307,13 @@
         <div class="seg-speed">4&times; speed</div>
       </div>
     </div>
+    <figure class="success-chart" aria-labelledby="success-chart-title">
+      <figcaption id="success-chart-title">Task success rate<span>40 tasks × 3 seeds · 120 episodes per method</span></figcaption>
+      <div class="success-chart-row ours"><span>RobotUse</span><div class="success-chart-track" aria-hidden="true"><div class="success-chart-bar" style="width:45%;"></div></div><span class="success-chart-value">45.00%</span></div>
+      <div class="success-chart-row"><span>CaP-X</span><div class="success-chart-track" aria-hidden="true"><div class="success-chart-bar" style="width:38.33%;"></div></div><span class="success-chart-value">38.33%</span></div>
+      <div class="success-chart-row"><span>GaP (ORS)</span><div class="success-chart-track" aria-hidden="true"><div class="success-chart-bar" style="width:20%;"></div></div><span class="success-chart-value">20.00%</span></div>
+      <div class="success-chart-axis" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </figure>
     <table style="margin-top:28px;">
       <thead><tr><th>Method</th><th>Success rate (40 tasks, 3 runs)</th></tr></thead>
       <tbody>
