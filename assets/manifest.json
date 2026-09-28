@@ -163,7 +163,10 @@
       "ors": {
         "seed": 0,
         "status": "failure",
-        "file": null
+        "file": "PickOrangeObjectTask_ors_seed0_reconstructed.mp4",
+        "recording_type": "simulation_replay",
+        "recording_note": "Rendered from saved seed-0 robot commands without new model calls. Not original footage; trajectory may differ. Replay verifier reported failure.",
+        "replay_success": false
       }
     },
     "RubiksCubeAndBananaTask": {
