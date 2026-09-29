@@ -2,30 +2,29 @@
   "order": [
     "FruitsOnPlate3Task",
     "RubiksCubeOrBananaTask",
-    "Stack3RubiksCubeTask",
-    "ReorientRedMugTask"
+    "Stack3RubiksCubeTask"
   ],
   "tasks": {
     "FruitsOnPlate3Task": {
       "objective": "Put three (3) fruits on the plate",
       "clips": [
         {
-          "label": "RobotUse · full",
+          "label": "RobotUse \uca0c full",
           "status": "success",
           "file": "videos/all/FruitsOnPlate3Task_x2.mp4"
         },
         {
-          "label": "RobotUse · no grasp",
+          "label": "RobotUse \uca0c no grasp",
           "status": "success",
           "file": "videos/ablation/FruitsOnPlate3Task_ours_removed.mp4"
         },
         {
-          "label": "CaP-X · full",
+          "label": "CaP-X \uca0c full",
           "status": "success",
           "file": "videos/ablation/FruitsOnPlate3Task_cap_full.mp4"
         },
         {
-          "label": "CaP-X · no grasp",
+          "label": "CaP-X \uca0c no grasp",
           "status": "failure",
           "file": "videos/ablation/FruitsOnPlate3Task_cap_removed.mp4"
         }
@@ -35,22 +34,22 @@
       "objective": "Put the cube or the banana in the bowl",
       "clips": [
         {
-          "label": "RobotUse · full",
+          "label": "RobotUse \uca0c full",
           "status": "success",
           "file": "videos/all/RubiksCubeOrBananaTask_x2.mp4"
         },
         {
-          "label": "RobotUse · no grasp",
+          "label": "RobotUse \uca0c no grasp",
           "status": "success",
           "file": "videos/ablation/RubiksCubeOrBananaTask_ours_removed.mp4"
         },
         {
-          "label": "CaP-X · full",
+          "label": "CaP-X \uca0c full",
           "status": "success",
           "file": "videos/ablation/RubiksCubeOrBananaTask_cap_full.mp4"
         },
         {
-          "label": "CaP-X · no grasp",
+          "label": "CaP-X \uca0c no grasp",
           "status": "failure",
           "file": "videos/ablation/RubiksCubeOrBananaTask_cap_removed.mp4"
         }
@@ -60,49 +59,24 @@
       "objective": "Stack the rubiks cubes in a tower",
       "clips": [
         {
-          "label": "RobotUse · full",
+          "label": "RobotUse \uca0c full",
           "status": "success",
           "file": "videos/all/Stack3RubiksCubeTask_x2.mp4"
         },
         {
-          "label": "RobotUse · no grasp",
+          "label": "RobotUse \uca0c no grasp",
           "status": "success",
           "file": "videos/ablation/Stack3RubiksCubeTask_ours_removed.mp4"
         },
         {
-          "label": "CaP-X · full",
+          "label": "CaP-X \uca0c full",
           "status": "success",
           "file": "videos/ablation/Stack3RubiksCubeTask_cap_full.mp4"
         },
         {
-          "label": "CaP-X · no grasp",
+          "label": "CaP-X \uca0c no grasp",
           "status": "failure",
           "file": "videos/ablation/Stack3RubiksCubeTask_cap_removed.mp4"
-        }
-      ]
-    },
-    "ReorientRedMugTask": {
-      "objective": "Put the red mug upright so that the opening is facing upwards.",
-      "clips": [
-        {
-          "label": "RobotUse · full",
-          "status": "success",
-          "file": "videos/all/ReorientRedMugTask_x2.mp4"
-        },
-        {
-          "label": "RobotUse · no grasp",
-          "status": "failure",
-          "file": "videos/ablation/ReorientRedMugTask_ours_removed.mp4"
-        },
-        {
-          "label": "CaP-X · full",
-          "status": "success",
-          "file": "videos/ablation/ReorientRedMugTask_cap_full.mp4"
-        },
-        {
-          "label": "CaP-X · no grasp",
-          "status": "failure",
-          "file": "videos/ablation/ReorientRedMugTask_cap_removed.mp4"
         }
       ]
     }

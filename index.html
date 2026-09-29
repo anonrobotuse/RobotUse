@@ -318,7 +318,7 @@
 
   <section id="ablation">
     <h2>Removing the grasp tool</h2>
-    <p>Selected seed-1 tasks where removing grasp tools causes CaP-X to fail. RobotUse succeeds in at least one condition.</p>
+    <p>Selected seed-1 tasks where RobotUse succeeds with and without grasp tools, while CaP-X changes from success to failure.</p>
     <div class="task-picker-row">
       <label for="ablation-select">Task</label>
       <select id="ablation-select" disabled><option>Loading tasks…</option></select>
@@ -733,7 +733,7 @@
   var ablationStrip = document.getElementById('ablation-filmstrip');
   var ablationPrev = document.getElementById('ablation-prev');
   var ablationNext = document.getElementById('ablation-next');
-  fetch('assets/ablation-manifest.json').then(function(response){
+  fetch('assets/ablation-manifest.json?v=both-success').then(function(response){
     if (!response.ok) throw new Error('Ablation task list unavailable');
     return response.json();
   }).then(function(data){
