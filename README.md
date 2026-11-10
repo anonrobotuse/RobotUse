@@ -28,6 +28,6 @@ To use it: push to any public repo (identity doesn't matter as much since the se
 
 ## Before pushing, double check
 
-- `git log` on this repo shows author `Anonymous <anonymous@anonymous.com>` (set locally in this repo only) — confirm the remote account you push to also carries no identifying name/email/avatar.
+- `git log` on this repo shows author `Anonymous <334136276+anonrobotuse@users.noreply.github.com>` (set locally in this repo only) — confirm the remote account you push to also carries no identifying name/email/avatar.
 - Strip any EXIF/identifying metadata from images if they were exported with author info embedded.
 - The abstract's numbers (45.00% / 38.33% / 20.00%) are copied from the current paper draft, which is marked as a **prospective/unverified** abstract in `overleaf-project/sec/00_abstract.tex`. Re-check against final evaluation results before making this page public.
